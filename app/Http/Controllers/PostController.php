@@ -24,6 +24,7 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         // TODO: $this->authorize('update', $post); を追加する
+        $this->authorize('update', $post);
 
         $validated = $request->validate([
             'title' => 'required|string|max:255',
@@ -38,6 +39,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         // TODO: $this->authorize('delete', $post); を追加する
+        $this->authorize('delete', $post);
 
         $post->delete();
 
